@@ -12,6 +12,31 @@
 </head>
 <h1> What are your tasks</h1>
 <body>
-    
+    <div id="addTaskDiv"> 
+        <input type="text" id="task" placeholder="Task">
+        <input type="text" id="date" placeholder="Date Task Added">
+        <input type="text" id="goal_date" placeholder="Finish By">
+        <select id="completed">
+            <option value="completedTask"></option>
+            <option value=""disabled selected>Completed?</option>></option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <button type="button" id="addTask">Add Task</button>
+    </div>
+    <div>
+        <h3>Your Task List</h3>
+        <table>
+           <tr>
+               <th>Task</th>
+               <th>Date</th>
+               <th>Goal Date</th>
+        </table>
+    </div>
 </body>
 </html>
+
+
+
+
+

@@ -112,14 +112,14 @@ function onReady(){
           type: 'PUT',
           url: `/tasks/${id}`,
           data: id
-        }) // end AJAX
+        }) 
         .done(function (response) {
           console.log('Updated completed task status');
           getTasks();
-        }) // end done
+        }) 
         .fail(function (error){
           console.log(error);
-        }) // end fail
+        }) 
       } // end updateComplete
 
 

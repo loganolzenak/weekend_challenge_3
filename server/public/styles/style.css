@@ -1,10 +1,30 @@
 h1{
-    color:rgb(29, 29, 206)
+color: black;
+text-align: center;
+font-family: Georgia, 'Times New Roman', Times, serif;
+text-shadow: 5px 5px red;
+}
+h3{
+    color: black;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 2px 2px red;
 }
 body{
-    background-color:lightcoral;
+    background-color: rgb(105, 105, 105);
+    text-align: center;
+    border-color:white;
+    border-width: 10px;
+    border-style: groove;
 
 }
+td{
+    border-style: groove;
+    border-width: 3px;
+    border-color: red;
+    margin: 5px
+}
 input{
-    color: blue
+    color: red;
+    text-align: center;
 }

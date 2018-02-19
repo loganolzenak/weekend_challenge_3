@@ -42,6 +42,19 @@ app.get('/tasks', (request, response)=>{
   })
 })
 
+app.delete('/tasks/:id', (request, response)=>{
+  const sqlText = `DELETE FROM tasks WHERE id=$1`;
+  const id = request.params.id;
+  pool.query(sqlText, [id]).then((result)=>{
+    console.log('deleted task', id);
+    response.sendStatus(200);
+  })// end success
+  .catch((error)=>{
+    console.log('error in server delete');
+    response.sendStatus(500);
+  })
+})
+
 app.listen(port, function(){
   console.log('listening on port', port);
 });

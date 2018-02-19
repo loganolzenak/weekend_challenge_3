@@ -58,3 +58,17 @@ app.delete('/tasks/:id', (request, response)=>{
 app.listen(port, function(){
   console.log('listening on port', port);
 });
+
+app.put('/tasks/:id', (request, response) => {
+  const id = request.params.id;
+  const sqlText = `UPDATE tasks SET completed=$1 WHERE id=$2`;
+  pool.query(sqlText, ['Y', id])
+    .then((result) => {
+      console.log(`Updated tasks ${id} with completed status Y`);
+      response.sendStatus(200);
+    })
+    .catch( (error) => {
+      console.log('Error on update completed');
+      response.sendStatus(500);
+    })
+})

@@ -17,6 +17,10 @@ function onReady(){
         const taskId =$(this).data('id');
         deleteTask(taskId);
     })
+    $('#gettingTasks').on('click', '.completedButton', function() {
+        let id = $(this).data('id');
+        completeUpdated(id);
+      }) 
 
 
     function addNewTask(){
@@ -91,31 +95,7 @@ function onReady(){
  console.log('error in delete task');
                     
   })
- }
-
-
-
-
-
-
-
-
-
-
-
-
-// function getOnDom(tasks){
-//     console.log(tasks);
-    
-//     for(let i=0; i<tasks.length; i++){
-//         $('#gettingTasks').append(tasks[i].task + '' + ':');
-//         $('#gettingTasks').append(tasks[i].date + '');
-//         $('#gettingTasks').append(tasks[i].goal_date + '');
-//         $('#gettingTasks').append(tasks[i].completed + '' + '<br>');
-        
-//     }// end for loop tasks
-// } // end get on dom
-
+}
 
 
     function clearInputs(){
@@ -127,7 +107,20 @@ function onReady(){
     }// end of clearInputs function
 
 
-
+    function completeUpdated(id) {
+        $.ajax({
+          type: 'PUT',
+          url: `/tasks/${id}`,
+          data: id
+        }) // end AJAX
+        .done(function (response) {
+          console.log('Updated completed task status');
+          getTasks();
+        }) // end done
+        .fail(function (error){
+          console.log(error);
+        }) // end fail
+      } // end updateComplete
 
 
 
